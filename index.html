@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Installazione App IPTV - Italia Max Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .device-selector {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .device-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .device-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .device-card.selected {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .device-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .guide-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .guide-container.active {
+            display: block;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .app-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            border-color: #4facfe;
+            box-shadow: 0 5px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .app-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .app-price {
+            background: #4facfe;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: auto;
+        }
+
+        .app-price.free {
+            background: #52c41a;
+        }
+
+        .app-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .installation-steps {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .step {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .step-number {
+            background: #4facfe;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ffeaa7;
+            margin: 15px 0;
+        }
+
+        .protected-content {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .order-verification {
+            background: white;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .verification-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .verify-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .verify-btn:hover {
+            background: #0056b3;
+        }
+
+        .verify-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .verification-status {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-loading {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .warning {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #f5c6cb;
+            margin: 15px 0;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin: 15px 0;
+        }
+
+        .btn {
+            background: #4facfe;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            background: #95a5a6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #7f8c8d;
+        }
+
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .download-link {
+            background: #52c41a;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .download-link:hover {
+            background: #389e0d;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .device-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .app-exclusive {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 8px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .app-exclusive strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Guide Installazione App IPTV</h1>
+            <p>Seleziona il tuo dispositivo per ottenere una guida personalizzata</p>
+            <div style="background: #e8f4f8; border: 1px solid #3498db; padding: 10px; border-radius: 5px; margin: 15px 0; font-size: 14px;">
+                <strong>📋 Demo GitHub Pages:</strong> Questa è una versione dimostrativa. Per la verifica ordini, usa IDs come <code>TEST123</code>, <code>ORD456</code> o numeri come <code>12345</code>.
+            </div>
+        </div>
+
+        <div class="device-selector" id="deviceSelector">
+            <h2>🔧 Scegli il tuo dispositivo:</h2>
+            <div class="device-grid">
+                <button class="device-card" onclick="showGuide('android')">
+                    <span class="device-icon">📱</span>
+                    <div>Android Mobile</div>
+                </button>
+                <button class="device-card" onclick="showGuide('firestick')">
+                    <span class="device-icon">📺</span>
+                    <div>Amazon FireStick</div>
+                </button>
+                <button class="device-card" onclick="showGuide('ios')">
+                    <span class="device-icon">🍎</span>
+                    <div>iPhone/iPad</div>
+                </button>
+                <button class="device-card" onclick="showGuide('windows')">
+                    <span class="device-icon">🖥️</span>
+                    <div>Windows PC</div>
+                </button>
+                <button class="device-card" onclick="showGuide('samsung')">
+                    <span class="device-icon">📺</span>
+                    <div>Samsung Smart TV</div>
+                </button>
+                <button class="device-card" onclick="showGuide('lg')">
+                    <span class="device-icon">📺</span>
+                    <div>LG Smart TV</div>
+                </button>
+                <button class="device-card" onclick="showGuide('androidtv')">
+                    <span class="device-icon">📺</span>
+                    <div>Android TV</div>
+                </button>
+                <button class="device-card" onclick="showGuide('mac')">
+                    <span class="device-icon">🍎</span>
+                    <div>Mac</div>
+                </button>
+                <button class="device-card" onclick="showGuide('webtv')">
+                    <span class="device-icon">🌐</span>
+                    <div>Web TV (Browser)</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Guide per ogni dispositivo -->
+        <div id="guideAndroid" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>📱 Guida Android Mobile</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="highlight" style="margin-bottom: 20px;">
+                <strong>📱 Vantaggi Android Mobile:</strong><br>
+                ✅ <strong>Installazione diretta</strong> - Nessun Downloader necessario<br>
+                ✅ <strong>Link APK diretti</strong> - Download più veloce<br>
+                ✅ <strong>Semplicità</strong> - Meno passaggi rispetto ad altri dispositivi
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player Android -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        <strong>🔍 Cerca esattamente "Max Player"</strong> su Google Play Store. Verifica il logo ufficiale Max Player mostrato sopra.
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📋 Cosa ti serve:</strong><br>
+                        • ID del tuo ordine<br>
+                        • Dispositivo Android
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Procedura di installazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Apri Google Play Store sul tuo dispositivo Android
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <strong>Cerca esattamente "Max Player"</strong><br>
+                            ⚠️ <strong>Importante:</strong> Verifica che sia l'app con il logo ufficiale Max Player (come mostrato sopra). <br>
+                            🚫 <strong>NON scaricare app simili</strong> come "MX Player" o altre varianti.
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta il supporto via @MaxTestPrivate_bot</a>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Invia il tuo <strong>ID ordine</strong> agli amministratori
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Attendi l'attivazione dell'applicazione
+                        </div>
+                    </div>
+                    
+                    <div class="success">
+                        ✅ <strong>Attivazione completata!</strong> Ora puoi usare Max Player con il tuo abbonamento.
+                    </div>
+                </div>
+
+                <!-- NowPurple Android -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">NowPurple</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        La nostra applicazione esclusiva con VPN integrata. Solo per abbonati.
+                    </div>
+                    
+                    <!-- Sistema di verifica ordine -->
+                    <div id="order-verification-android" class="order-verification">
+                        <h4>🔐 Verifica il tuo ordine</h4>
+                        <p>Per accedere ai link di download delle app esclusive, inserisci il tuo ID ordine:</p>
+                        <div>
+                            <input type="text" id="order-input-android" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
+                            <br>
+                            <button id="verify-btn-android" class="verify-btn">🔍 Verifica Ordine</button>
+                        </div>
+                        <div id="verification-status-android"></div>
+                    </div>
+                    
+                    <!-- Contenuto protetto (nascosto inizialmente) -->
+                    <div id="protected-content-android" class="hidden">
+                        <div class="highlight">
+                            <strong>📋 Cosa ti serve:</strong><br>
+                            • ID del tuo ordine (verificato ✅)<br>
+                            • Abilitazione "Origini sconosciute"
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <h4>🔧 Installazione Diretta APK (Metodo Consigliato):</h4>
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <strong>Abilita origini sconosciute:</strong><br>
+                                Impostazioni > Sicurezza > Origini sconosciute: <strong>ON</strong>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <strong>Scarica direttamente l'APK:</strong><br>
+                                <div class="download-links">
+                                    <a href="http://aftv.news/1756384" class="download-link" target="_blank">📥 Link Principale NowPurple</a>
+                                    <a href="http://aftv.news/1528503" class="download-link" target="_blank">📥 Link Alternativo</a>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                Clicca sul file APK scaricato e installa l'app
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> per supporto tecnico
+                            </div>
+                        </div>
+                        
+                        <div class="warning">
+                            ⚠️ <strong>Codici alternativi:</strong> Se il primo link non funziona, usa il codice <strong>1528503</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro Android -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale con funzionalità avanzate. Verifica il logo IBO mostrato sopra.
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📋 Cosa ti serve:</strong><br>
+                        • Acquisto tramite bot (categoria App)<br>
+                        • ID ordine + <strong>MAC Address e Device Key dall'app IBO</strong>
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Procedura di acquisto e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su Google Play Store e cerca <strong>"IBO Player Pro"</strong><br>
+                            ⚠️ <strong>Verifica il logo IBO</strong> mostrato sopra per trovare l'app corretta
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            In <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a>, vai in categoria "App" e acquista IBO Player Pro
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>Installa e apri IBO Player Pro</strong> dal Google Play Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <strong>Trova MAC Address e Device Key nell'app:</strong><br>
+                            Apri l'app → Nella schermata principale troverai:<br>
+                            📱 "<strong>Your MAC is Activated</strong>"<br>
+                            📋 <strong>Mac Address</strong> e <strong>Device Key</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" style="display: inline-block; cursor: pointer;">
+                                    <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="IBO Player Pro MAC e Device Key" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">
+                                </a>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">📱 Esempio: Come trovare MAC Address e Device Key nell'app<br><span style="color: #007bff;">🔍 Clicca per ingrandire</span></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con:<br>
+                            • <strong>ID ordine</strong><br>
+                            • <strong>MAC Address</strong> (dall'app IBO)<br>
+                            • <strong>Device Key</strong> (dall'app IBO)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Attendi l'attivazione dell'app
+                        </div>
+                    </div>
+                    
+                    <div class="warning">
+                        ⚠️ <strong>Nota:</strong> Puoi acquistare solo l'app senza abbonamento IPTV se vuoi usare liste di altri provider.
+                    </div>
+                </div>
+
+                <!-- XCloud Android -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">XCloud</div>
+                        <div class="app-price">Solo abbonati</div>
+                    </div>
+                    <div class="app-description">
+                        App esclusiva disponibile solo per i nostri abbonati IPTV.
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📋 Cosa ti serve:</strong><br>
+                        • Abbonamento IPTV attivo<br>
+                        • ID ordine<br>
+                        • Codice dall'app dopo installazione
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Procedura di attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Riceverai il link per scaricare XCloud
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Installa l'app sul tuo dispositivo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Apri XCloud e copia il <strong>codice di attivazione</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Invia il codice a <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> per l'attivazione finale
+                        </div>
+                    </div>
+                    
+                    <div class="success">
+                        ✅ <strong>App attivata!</strong> Ora puoi utilizzare XCloud con le tue credenziali.
+                    </div>
+                </div>
+
+                <!-- Altre App Android -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">Altre App Esclusive</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        Le nostre app personalizzate per un'esperienza ottimale.
+                    </div>
+                    
+                    <!-- Sistema di verifica ordine per app esclusive -->
+                    <div id="order-verification-exclusive-android" class="order-verification">
+                        <h4>🔐 Verifica il tuo ordine per App Esclusive</h4>
+                        <p>Per accedere ai link di download delle app esclusive, inserisci il tuo ID ordine:</p>
+                        <div>
+                            <input type="text" id="order-input-exclusive-android" class="verification-input" placeholder="Inserisci ID ordine (es: TEST123 per test)">
+                            <br>
+                            <button id="verify-btn-exclusive-android" class="verify-btn">🔍 Verifica Ordine</button>
+                        </div>
+                        <div id="verification-status-exclusive-android"></div>
+                    </div>
+                    
+                    <!-- Contenuto protetto app esclusive -->
+                    <div id="protected-content-exclusive-android" class="hidden">
+                        <div class="installation-steps">
+                            <h4>📱 App disponibili tramite link diretti APK:</h4>
+                            
+                            <div class="step">
+                                <strong>NOW PVT V4</strong><br>
+                                <div class="download-links">
+                                    <a href="http://aftv.news/6554343" class="download-link" target="_blank">📥 Link 1</a>
+                                    <a href="http://aftv.news/2278117" class="download-link" target="_blank">📥 Link 2</a>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <strong>XC NOW PVT</strong><br>
+                                <div class="download-links">
+                                    <a href="http://aftv.news/354639" class="download-link" target="_blank">📥 Scarica</a>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <strong>INDEX</strong><br>
+                                <div class="download-links">
+                                    <a href="http://aftv.news/450006" class="download-link" target="_blank">📥 Scarica</a>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <strong>NOW V4 REMIX</strong><br>
+                                <div class="download-links">
+                                    <a href="http://aftv.news/143160" class="download-link" target="_blank">📥 Scarica</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>💡 Installazione semplificata Android:</strong><br>
+                        1. Abilita "Origini sconosciute" nelle impostazioni<br>
+                        2. Clicca sui link APK sopra per scaricare direttamente<br>
+                        3. Installa dal file scaricato (nessuna app aggiuntiva necessaria)<br>
+                        ✅ <strong>Vantaggi:</strong> Installazione più veloce e diretta!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FireStick Guide -->
+        <div id="guideFirestick" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>📺 Guida Amazon FireStick</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player FireStick -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        <strong>🔍 Cerca "Max Player"</strong> sull'Amazon AppStore. Verifica il logo ufficiale Max Player.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da Amazon AppStore:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su "Find" → "Search" nella home di FireStick
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Attendi l'attivazione dell'applicazione
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NowPurple FireStick -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">NowPurple</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        App esclusiva con VPN integrata per FireStick. Solo per abbonati.
+                    </div>
+                    
+                    <!-- Sistema di verifica ordine -->
+                    <div id="order-verification-firestick" class="order-verification">
+                        <h4>🔐 Verifica il tuo ordine</h4>
+                        <p>Per accedere ai codici di download di NowPurple, inserisci il tuo ID ordine:</p>
+                        <div>
+                            <input type="text" id="order-input-firestick" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
+                            <br>
+                            <button id="verify-btn-firestick" class="verify-btn">🔍 Verifica Ordine</button>
+                        </div>
+                        <div id="verification-status-firestick"></div>
+                    </div>
+                    
+                    <!-- Contenuto protetto (nascosto inizialmente) -->
+                    <div id="protected-content-firestick" class="hidden">
+                        <div class="highlight">
+                            <strong>📋 Cosa ti serve:</strong><br>
+                            • ID del tuo ordine (verificato ✅)<br>
+                            • FireStick con Downloader installato
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <h4>🔧 Installazione con Downloader:</h4>
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <strong>Abilita app di origini sconosciute:</strong><br>
+                                Settings → My Fire TV → Developer Options → Apps from Unknown Sources (ON)
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                Installa "Downloader" dall'Amazon AppStore
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                Apri Downloader e inserisci il codice: <strong>1756384</strong>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                Scarica e installa NowPurple
+                            </div>
+                            <div class="step">
+                                <span class="step-number">5</span>
+                                <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="warning">
+                            ⚠️ <strong>Link alternativi:</strong> Se 1756384 non funziona, usa <strong>1528503</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro FireStick -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per FireStick. Verifica il logo IBO mostrato sopra.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Cerca <strong>"IBO Player Pro"</strong> sull'Amazon AppStore<br>
+                            ⚠️ <strong>Verifica il logo IBO</strong> mostrato sopra per l'app corretta
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Acquista l'app tramite <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> nella categoria "App"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>Installa e apri IBO Player Pro</strong> dall'Amazon AppStore
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <strong>Trova MAC Address e Device Key nell'app:</strong><br>
+                            Apri l'app → Nella schermata principale troverai:<br>
+                            📱 "<strong>Your MAC is Activated</strong>"<br>
+                            📋 <strong>Mac Address</strong> e <strong>Device Key</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" style="display: inline-block; cursor: pointer;">
+                                    <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="IBO Player Pro MAC e Device Key" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">
+                                </a>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">📱 Esempio: Come trovare MAC Address e Device Key nell'app<br><span style="color: #007bff;">🔍 Clicca per ingrandire</span></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con:<br>
+                            • <strong>ID ordine</strong><br>
+                            • <strong>MAC Address</strong> (dall'app IBO)<br>
+                            • <strong>Device Key</strong> (dall'app IBO)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Esclusive FireStick -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">App Esclusive FireStick</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        Le nostre app personalizzate per FireStick.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>📱 Installazione con Downloader:</h4>
+                        
+                        <div class="step">
+                            <strong>NOW PVT V4</strong><br>
+                            Codici Downloader: <code>2278117</code> o <code>6554343</code>
+                        </div>
+                        
+                        <div class="step">
+                            <strong>XC NOW PVT</strong><br>
+                            Codice Downloader: <code>354639</code>
+                        </div>
+                        
+                        <div class="step">
+                            <strong>INDEX</strong><br>
+                            Codice Downloader: <code>450006</code>
+                        </div>
+                        
+                        <div class="step">
+                            <strong>NOW V4 REMIX</strong><br>
+                            Codice Downloader: <code>143160</code>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>💡 Procedura generale:</strong><br>
+                        1. Abilita "Apps from Unknown Sources"<br>
+                        2. Installa Downloader<br>
+                        3. Inserisci il codice dell'app desiderata<br>
+                        4. Installa l'app scaricata
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- iOS Guide -->
+        <div id="guideIos" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>🍎 Guida iPhone/iPad</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player iOS -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        <strong>🔍 Cerca "Max Player"</strong> sull'App Store iOS. Verifica il logo ufficiale Max Player.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da App Store:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Apri App Store sul tuo iPhone/iPad
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Attendi l'attivazione dell'applicazione
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro iOS -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per dispositivi Apple. Verifica il logo IBO mostrato sopra.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Cerca <strong>"IBO Player Pro"</strong> sull'App Store<br>
+                            ⚠️ <strong>Verifica il logo IBO</strong> mostrato sopra per l'app corretta
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Acquista l'app tramite <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> nella categoria "App"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>Installa e apri IBO Player Pro</strong> dall'App Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <strong>Trova MAC Address e Device Key nell'app:</strong><br>
+                            Apri l'app → Nella schermata principale troverai:<br>
+                            📱 "<strong>Your MAC is Activated</strong>"<br>
+                            📋 <strong>Mac Address</strong> e <strong>Device Key</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" style="display: inline-block; cursor: pointer;">
+                                    <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="IBO Player Pro MAC e Device Key" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">
+                                </a>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">📱 Esempio: Come trovare MAC Address e Device Key nell'app<br><span style="color: #007bff;">🔍 Clicca per ingrandire</span></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con:<br>
+                            • <strong>ID ordine</strong><br>
+                            • <strong>MAC Address</strong> (dall'app IBO)<br>
+                            • <strong>Device Key</strong> (dall'app IBO)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XCloud iOS -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">XCloud</div>
+                        <div class="app-price">Solo abbonati</div>
+                    </div>
+                    <div class="app-description">
+                        App esclusiva disponibile sull'App Store per i nostri abbonati.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Procedura di attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Cerca "XCloud" sull'App Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Installa l'app dal link che riceverai
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Apri XCloud e copia il <strong>codice di attivazione</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Invia il codice a <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> per l'attivazione
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Windows Guide -->
+        <div id="guideWindows" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>🖥️ Guida Windows PC</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player Windows -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        <strong>🔍 Cerca "Max Player"</strong> sul Microsoft Store. Verifica il logo ufficiale Max Player.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da Microsoft Store:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Apri Microsoft Store sul tuo PC Windows
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Attendi l'attivazione dell'applicazione
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro Windows -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per PC Windows. Verifica il logo IBO mostrato sopra.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su <a href="https://www.iboplayerpro.com" target="_blank">www.iboplayerpro.com</a>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Scarica la versione Windows dell'app
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Acquista l'app tramite <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> nella categoria "App"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <strong>Installa e apri IBO Player Pro</strong> dal Microsoft Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <strong>Trova MAC Address e Device Key nell'app:</strong><br>
+                            Apri l'app → Nella schermata principale troverai:<br>
+                            📱 "<strong>Your MAC is Activated</strong>"<br>
+                            📋 <strong>Mac Address</strong> e <strong>Device Key</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" style="display: inline-block; cursor: pointer;">
+                                    <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="IBO Player Pro MAC e Device Key" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">
+                                </a>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">📱 Esempio: Come trovare MAC Address e Device Key nell'app<br><span style="color: #007bff;">🔍 Clicca per ingrandire</span></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">7</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con:<br>
+                            • <strong>ID ordine</strong><br>
+                            • <strong>MAC Address</strong> (dall'app IBO)<br>
+                            • <strong>Device Key</strong> (dall'app IBO)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Samsung Smart TV Guide -->
+        <div id="guideSamsung" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>📺 Guida Samsung Smart TV</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player Samsung -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        <strong>🔍 Cerca "Max Player"</strong> su Samsung Apps Store. Verifica il logo ufficiale Max Player.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da Samsung Smart Hub:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Premi il tasto Home sul telecomando Samsung
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Vai su "Apps" → "Samsung Apps Store"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro Samsung -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per Samsung Smart TV. Verifica il logo IBO mostrato sopra.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su Samsung Apps Store dalla TV
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca <strong>"IBO Player Pro"</strong><br>
+                            ⚠️ <strong>Verifica il logo IBO</strong> mostrato sopra
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Acquista l'app tramite <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> nella categoria "App"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <strong>Installa e apri IBO Player Pro</strong> da Samsung Apps Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <strong>Trova MAC Address e Device Key nell'app:</strong><br>
+                            Apri l'app → Nella schermata principale troverai:<br>
+                            📱 "<strong>Your MAC is Activated</strong>"<br>
+                            📋 <strong>Mac Address</strong> e <strong>Device Key</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" style="display: inline-block; cursor: pointer;">
+                                    <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="IBO Player Pro MAC e Device Key" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">
+                                </a>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">📱 Esempio: Come trovare MAC Address e Device Key nell'app<br><span style="color: #007bff;">🔍 Clicca per ingrandire</span></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">7</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con:<br>
+                            • <strong>ID ordine</strong><br>
+                            • <strong>MAC Address</strong> (dall'app IBO)<br>
+                            • <strong>Device Key</strong> (dall'app IBO)
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📺 Guida video ufficiale:</strong><br>
+                        Visita il sito <a href="https://www.iboplayerpro.com" target="_blank">iboplayerpro.com</a> per video tutorial specifici per Samsung TV.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LG Smart TV Guide -->
+        <div id="guideLg" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>📺 Guida LG Smart TV</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player LG -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        <strong>🔍 Cerca "Max Player"</strong> su LG Content Store. Verifica il logo ufficiale Max Player.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da LG Content Store:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Premi il tasto Home sul telecomando LG
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Vai su "LG Content Store"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro LG -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per LG Smart TV. Verifica il logo IBO mostrato sopra.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su LG Content Store dalla TV
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca <strong>"IBO Player Pro"</strong><br>
+                            ⚠️ <strong>Verifica il logo IBO</strong> mostrato sopra
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Acquista l'app tramite <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a> nella categoria "App"
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <strong>Installa e apri IBO Player Pro</strong> da LG Content Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <strong>Trova MAC Address e Device Key nell'app:</strong><br>
+                            Apri l'app → Nella schermata principale troverai:<br>
+                            📱 "<strong>Your MAC is Activated</strong>"<br>
+                            📋 <strong>Mac Address</strong> e <strong>Device Key</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">6</span>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" style="display: inline-block; cursor: pointer;">
+                                    <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="IBO Player Pro MAC e Device Key" style="max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #ddd; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onerror="this.style.display='none'">
+                                </a>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">📱 Esempio: Come trovare MAC Address e Device Key nell'app<br><span style="color: #007bff;">🔍 Clicca per ingrandire</span></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">7</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con:<br>
+                            • <strong>ID ordine</strong><br>
+                            • <strong>MAC Address</strong> (dall'app IBO)<br>
+                            • <strong>Device Key</strong> (dall'app IBO)
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📺 Guida video ufficiale:</strong><br>
+                        Visita il sito <a href="https://www.iboplayerpro.com" target="_blank">iboplayerpro.com</a> per video tutorial specifici per LG TV.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Android TV Guide -->
+        <div id="guideAndroidtv" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>📺 Guida Android TV</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Cerca <strong>ESATTAMENTE "Max Player"</strong> - NON "MX Player" o simili!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player Android TV -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: #2c3e50; padding: 8px; border: 2px solid #34495e;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV per Android TV con supporto completo. <strong>⚠️ Verifica il logo MP colorato mostrato sopra!</strong>
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da Google Play Store:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Apri Google Play Store sulla tua Android TV
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Inserisci i dati forniti dall'assistenza
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NowPurple Android TV -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">NowPurple</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        App esclusiva con VPN integrata per Android TV. Solo per abbonati.
+                    </div>
+                    
+                    <!-- Sistema di verifica ordine -->
+                    <div id="order-verification-androidtv" class="order-verification">
+                        <h4>🔐 Verifica il tuo ordine</h4>
+                        <p>Per accedere ai codici di download di NowPurple, inserisci il tuo ID ordine:</p>
+                        <div>
+                            <input type="text" id="order-input-androidtv" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
+                            <br>
+                            <button id="verify-btn-androidtv" class="verify-btn">🔍 Verifica Ordine</button>
+                        </div>
+                        <div id="verification-status-androidtv"></div>
+                    </div>
+                    
+                    <!-- Contenuto protetto (nascosto inizialmente) -->
+                    <div id="protected-content-androidtv" class="hidden">
+                        <div class="highlight">
+                            <strong>📋 Cosa ti serve:</strong><br>
+                            • ID del tuo ordine (verificato ✅)<br>
+                            • Android TV con Downloader installato
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <h4>🔧 Installazione con Downloader:</h4>
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <strong>Abilita origini sconosciute:</strong><br>
+                                Impostazioni → Sicurezza e restrizioni → Origini sconosciute: <strong>ON</strong>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                Installa "Downloader" dal Google Play Store
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                Apri Downloader e inserisci il codice: <strong>1756384</strong>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                Scarica e installa NowPurple
+                            </div>
+                            <div class="step">
+                                <span class="step-number">5</span>
+                                <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="warning">
+                            ⚠️ <strong>Link alternativi:</strong> Se 1756384 non funziona, usa <strong>1528503</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro Android TV -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: #2c3e50; padding: 8px; border: 2px solid #34495e;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per Android TV con funzionalità avanzate. <strong>⚠️ Verifica il logo IBO mostrato sopra</strong>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📋 Cosa ti serve:</strong><br>
+                        • Acquisto tramite bot (categoria App)<br>
+                        • ID ordine + MAC Address e Device Key dall'app IBO
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Procedura di acquisto e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su Google Play Store e cerca "IBO Player Pro"<br>
+                            <strong>⚠️ Verifica il logo IBO mostrato sopra per trovare l'app corretta</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            In <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a>, vai in categoria "App" e acquista IBO Player Pro
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>Installa e apri IBO Player Pro</strong> per trovare MAC Address e Device Key nell'app<br>
+                            <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" style="display: inline-block; margin: 10px 0;">
+                                <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="Esempio MAC e Device Key in IBO Player Pro" style="max-width: 200px; border-radius: 8px; border: 2px solid #3498db;">
+                            </a><br>
+                            <small style="color: #7f8c8d;">Clicca per ingrandire l'immagine esempio</small>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con ID ordine + MAC Address e Device Key dall'app IBO
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Attendi l'attivazione dell'applicazione
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Altre App Esclusive Android TV -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">Altre App Esclusive</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        Le nostre app personalizzate per un'esperienza ottimale su Android TV.
+                    </div>
+                    
+                    <!-- Sistema di verifica ordine per app esclusive -->
+                    <div id="order-verification-exclusive-androidtv" class="order-verification">
+                        <h4>🔐 Verifica il tuo ordine per App Esclusive</h4>
+                        <p>Per accedere ai codici di download delle app esclusive, inserisci il tuo ID ordine:</p>
+                        <div>
+                            <input type="text" id="order-input-exclusive-androidtv" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
+                            <br>
+                            <button id="verify-btn-exclusive-androidtv" class="verify-btn">🔍 Verifica Ordine</button>
+                        </div>
+                        <div id="verification-status-exclusive-androidtv"></div>
+                    </div>
+                    
+                    <!-- Contenuto protetto per app esclusive (nascosto inizialmente) -->
+                    <div id="protected-content-exclusive-androidtv" class="hidden">
+                        <div class="highlight">
+                            <strong>📋 Cosa ti serve:</strong><br>
+                            • ID del tuo ordine (verificato ✅)<br>
+                            • Android TV con Downloader installato
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <h4>📱 App disponibili tramite Downloader:</h4>
+                            <div class="app-exclusive">
+                                <strong>NOW PVT V4</strong><br>
+                                Codici: <strong>2278117</strong> o <strong>6554343</strong>
+                            </div>
+                            <div class="app-exclusive">
+                                <strong>XC NOW PVT</strong><br>
+                                Codice: <strong>354639</strong>
+                            </div>
+                            <div class="app-exclusive">
+                                <strong>INDEX</strong><br>
+                                Codice: <strong>450006</strong>
+                            </div>
+                            <div class="app-exclusive">
+                                <strong>NOW V4 REMIX</strong><br>
+                                Codice: <strong>143160</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="installation-steps">
+                            <h4>🔧 Procedura di installazione:</h4>
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <strong>Abilita origini sconosciute:</strong><br>
+                                Impostazioni → Sicurezza e restrizioni → Origini sconosciute: <strong>ON</strong>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                Installa "Downloader" dal Google Play Store
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                Apri Downloader e inserisci uno dei codici sopra elencati
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                Scarica e installa l'app desiderata
+                            </div>
+                            <div class="step">
+                                <span class="step-number">5</span>
+                                <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="warning">
+                            ⚠️ <strong>Supporto:</strong> Per problemi di installazione o attivazione, contatta l'assistenza con il tuo ID ordine
+                        </div>
+                    </div>
+                </div>
+
+                <!-- XCloud Android TV -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">XCloud</div>
+                        <div class="app-price">A PAGAMENTO</div>
+                    </div>
+                    <div class="app-description">
+                        Applicazione IPTV premium per Android TV con funzionalità avanzate.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da Google Play Store:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Cerca "XCloud" su Google Play Store
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            In <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a>, vai in categoria "App" e acquista XCloud
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine + app code</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Inserisci i dati forniti dall'assistenza
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight" style="margin-top: 30px;">
+                <strong>💡 Nota Android TV:</strong><br>
+                • Android TV supporta installazione diretta da Google Play Store per la maggior parte delle app<br>
+                • Per app non disponibili su Play Store, usa Downloader con i codici forniti<br>
+                • Le impostazioni potrebbero variare leggermente tra i modelli di TV
+            </div>
+        </div>
+
+        <!-- Mac Guide -->
+        <div id="guideMac" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>🍎 Guida Mac</h2>
+            
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>⚠️ IMPORTANTE - Max Player:</strong><br>
+                Scarica <strong>ESATTAMENTE "Max Player"</strong> - NON "VLC" o altri player!<br>
+                ✅ Verifica sempre il logo ufficiale mostrato nelle app qui sotto.
+            </div>
+            
+            <div class="app-grid">
+                <!-- Max Player Mac -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" alt="Max Player Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: #2c3e50; padding: 8px; border: 2px solid #34495e;" onerror="this.style.display='none'">
+                            <div class="app-name">Max Player</div>
+                        </div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV per Mac con supporto completo. <strong>⚠️ Verifica il logo MP colorato mostrato sopra!</strong>
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Installazione da Mac App Store:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Apri Mac App Store sul tuo Mac
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Cerca "Max Player" e installalo
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            Inserisci i dati forniti dall'assistenza
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web TV Mac -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-name">Web TV</div>
+                        <div class="app-price free">GRATUITA</div>
+                    </div>
+                    <div class="app-description">
+                        Accesso diretto tramite browser web. Compatibile con Safari, Chrome, Firefox.
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Accesso tramite Browser:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Apri il tuo browser preferito (Safari, Chrome, Firefox)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            Vai all'indirizzo: <strong>http://my.splayer.in/servers/Now-Pvt</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            Inserisci il codice: <strong>630</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con il tuo <strong>ID ordine</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>💡 Vantaggi Web TV:</strong><br>
+                        • Nessuna installazione richiesta<br>
+                        • Funziona su qualsiasi browser moderno<br>
+                        • Aggiornamenti automatici<br>
+                        • Accesso immediato
+                    </div>
+                </div>
+
+                <!-- IBO Player Pro Mac -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="https://iboplayer.pro/m3u/logo-512.png" alt="IBO Player Pro Logo" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: #2c3e50; padding: 8px; border: 2px solid #34495e;" onerror="this.style.display='none'">
+                            <div class="app-name">IBO Player Pro</div>
+                        </div>
+                        <div class="app-price">€5/anno o €10 a vita</div>
+                    </div>
+                    <div class="app-description">
+                        Player IPTV professionale per Mac con funzionalità avanzate. <strong>⚠️ Verifica il logo IBO mostrato sopra</strong>
+                    </div>
+                    
+                    <div class="highlight">
+                        <strong>📋 Cosa ti serve:</strong><br>
+                        • Acquisto tramite bot (categoria App)<br>
+                        • ID ordine + MAC Address e Device Key dall'app IBO
+                    </div>
+                    
+                    <div class="installation-steps">
+                        <h4>🔧 Procedura di acquisto e attivazione:</h4>
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            Vai su Mac App Store e cerca "IBO Player Pro"<br>
+                            <strong>⚠️ Verifica il logo IBO mostrato sopra per trovare l'app corretta</strong>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            In <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">@MaxTestPrivate_bot</a>, vai in categoria "App" e acquista IBO Player Pro
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <strong>Installa e apri IBO Player Pro</strong> per trovare MAC Address e Device Key nell'app<br>
+                            <a href="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" target="_blank" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" style="display: inline-block; margin: 10px 0;">
+                                <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" alt="Esempio MAC e Device Key in IBO Player Pro" style="max-width: 200px; border-radius: 8px; border: 2px solid #3498db;">
+                            </a><br>
+                            <small style="color: #7f8c8d;">Clicca per ingrandire l'immagine esempio</small>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <a href="https://t.me/MaxTestPrivate_bot" target="_blank" style="color: #3498db; text-decoration: none;">💬 Contatta @MaxTestPrivate_bot</a> con ID ordine + MAC Address e Device Key dall'app IBO
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            Attendi l'attivazione dell'applicazione
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight" style="margin-top: 30px;">
+                <strong>💡 Nota Mac:</strong><br>
+                • macOS supporta installazione diretta da Mac App Store per tutte le app<br>
+                • Per Web TV, assicurati di avere una connessione internet stabile<br>
+                • Alcune app potrebbero richiedere autorizzazioni speciali in Preferenze di Sistema
+            </div>
+        </div>
+
+        <!-- Web TV Guide -->
+        <div id="guideWebtv" class="guide-container">
+            <button class="back-btn" onclick="showDeviceSelector()">← Torna alla selezione</button>
+            <h2>🌐 Web TV - Guarda da qualsiasi browser</h2>
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-name">Web TV Streaming</div>
+                    <div class="app-price free">GRATUITA</div>
+                </div>
+                <div class="app-description">
+                    Accedi alla nostra Web TV direttamente dal browser, su qualsiasi dispositivo!
+                </div>
+                
+                <div class="highlight">
+                    <strong>🌐 Accesso Web TV:</strong><br>
+                    URL: <a href="http://my.splayer.in/servers/Now-Pvt" target="_blank">http://my.splayer.in/servers/Now-Pvt</a><br>
+                    Codice: <strong>630</strong>
+                </div>
+                
+                <div class="installation-steps">
+                    <h4>🔧 Come accedere alla Web TV:</h4>
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        Apri il browser sul tuo dispositivo (Chrome, Firefox, Safari, Edge)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        Vai all'indirizzo: <strong>http://my.splayer.in/servers/Now-Pvt</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        Inserisci il codice: <strong>630</strong>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        Inserisci le tue credenziali (username e password)
+                    </div>
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        Inizia a guardare i tuoi canali preferiti!
+                    </div>
+                </div>
+                
+                <div class="success">
+                    ✅ <strong>Compatibile con:</strong> PC, Mac, smartphone, tablet, Smart TV con browser
+                </div>
+                
+                <div class="download-links">
+                    <a href="http://my.splayer.in/servers/Now-Pvt" class="btn" target="_blank">🚀 Accedi alla Web TV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sistema di verifica ordine per contenuti protetti
+        async function verifyOrder(orderId, deviceType) {
+            const statusDiv = document.getElementById(`verification-status-${deviceType}`);
+            const verifyBtn = document.getElementById(`verify-btn-${deviceType}`);
+            
+            // Rimosso controllo localStorage - sempre verifica online
+            
+            // Mostra stato di caricamento
+            statusDiv.innerHTML = '<div class="verification-status status-loading">🔄 Verifica in corso...</div>';
+            verifyBtn.disabled = true;
+            
+            try {
+                // Simulazione API per GitHub Pages (sostituire con API reale in produzione)
+                const mockResponse = {
+                    valid: orderId.startsWith('TEST') || orderId.startsWith('ORD') || /^\d+$/.test(orderId),
+                    message: orderId.startsWith('TEST') || orderId.startsWith('ORD') || /^\d+$/.test(orderId) ? 'Accesso autorizzato (demo)' : 'ID ordine non valido',
+                    order_info: {
+                        id: orderId,
+                        product: 'Prodotto Demo',
+                        status: 'delivered'
+                    }
+                };
+                
+                // Simula delay API
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                const result = mockResponse;
+                
+                // Codice commentato per API reale:
+                // const response = await fetch('https://your-api-domain.com/verify_order_api.php', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify({
+                //         order_id: orderId
+                //     })
+                // });
+                // 
+                // const result = await response.json();
+                
+                if (result.valid) {
+                    // Ordine valido - mostra contenuto protetto
+                    statusDiv.innerHTML = `
+                        <div class="verification-status status-success">
+                            ✅ Accesso autorizzato!<br>
+                            <small>Ordine: ${result.order_info.product}</small>
+                        </div>
+                    `;
+                    
+                    // Nasconde verifica e mostra contenuto
+                    document.getElementById(`order-verification-${deviceType}`).style.display = 'none';
+                    document.getElementById(`protected-content-${deviceType}`).classList.remove('hidden');
+                    
+                    // Mostra anche le app esclusive se esistono (per il sistema combinato)
+                    const exclusiveApps = document.getElementById(`exclusive-apps-content-${deviceType}`);
+                    if (exclusiveApps) {
+                        exclusiveApps.classList.remove('hidden');
+                    }
+                    
+                    // Rimosso salvataggio localStorage - sempre richiedi verifica
+                    
+                } else {
+                    // Ordine non valido
+                    statusDiv.innerHTML = `
+                        <div class="verification-status status-error">
+                            ❌ ${result.message}<br>
+                            <small>Verifica il tuo ID ordine e riprova</small>
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                statusDiv.innerHTML = `
+                    <div class="verification-status status-error">
+                        ❌ Errore di connessione<br>
+                        <small>Riprova più tardi</small>
+                    </div>
+                `;
+            }
+            
+            verifyBtn.disabled = false;
+        }
+        
+        // Funzione rimossa - nessuna memorizzazione, sempre richiedi ID
+        function checkExistingVerification(deviceType) {
+            // Non fare nulla - ogni volta deve reinserire l'ID
+        }
+        
+        // Funzione rimossa - nessuna memorizzazione
+        function isOrderAlreadyVerified(orderId, deviceType) {
+            return false; // Sempre falso = sempre richiedi verifica
+        }
+        
+        // Funzione rimossa - non più necessaria
+        function clearVerifiedOrders(deviceType) {
+            // Non più necessaria
+        }
+        
+        // Gestione form di verifica
+        function setupVerification(deviceType) {
+            const input = document.getElementById(`order-input-${deviceType}`);
+            const btn = document.getElementById(`verify-btn-${deviceType}`);
+            
+            if (input && btn) {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        verifyOrder(input.value.trim(), deviceType);
+                    }
+                });
+                
+                btn.addEventListener('click', function() {
+                    const orderId = input.value.trim();
+                    if (orderId) {
+                        verifyOrder(orderId, deviceType);
+                    }
+                });
+            }
+        }
+
+        function showGuide(device) {
+            // Nascondi il selettore dispositivi
+            document.getElementById('deviceSelector').style.display = 'none';
+            
+            // Nascondi tutte le guide
+            const guides = document.querySelectorAll('.guide-container');
+            guides.forEach(guide => guide.classList.remove('active'));
+            
+            // Mostra la guida selezionata
+            const selectedGuide = document.getElementById('guide' + device.charAt(0).toUpperCase() + device.slice(1));
+            if (selectedGuide) {
+                selectedGuide.classList.add('active');
+                
+                // Inizializza il sistema di verifica per contenuti protetti
+                setupVerification(device);
+                checkExistingVerification(device);
+                
+                // Inizializza anche il sistema per le app esclusive
+                setupVerification(`exclusive-${device}`);
+                checkExistingVerification(`exclusive-${device}`);
+            }
+            
+            // Evidenzia il dispositivo selezionato
+            document.querySelectorAll('.device-card').forEach(card => card.classList.remove('selected'));
+            event.target.closest('.device-card').classList.add('selected');
+        }
+        
+        function showDeviceSelector() {
+            // Mostra il selettore dispositivi
+            document.getElementById('deviceSelector').style.display = 'block';
+            
+            // Nascondi tutte le guide
+            const guides = document.querySelectorAll('.guide-container');
+            guides.forEach(guide => guide.classList.remove('active'));
+            
+            // Rimuovi selezione
+            document.querySelectorAll('.device-card').forEach(card => card.classList.remove('selected'));
+        }
+    </script>
+</body>
+</html>

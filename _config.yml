@@ -1,0 +1,37 @@
+# GitHub Pages Configuration for Italia Max Shop Installation Guide
+
+title: "Guide Installazione App IPTV"
+description: "Guide interattive per l'installazione delle app IPTV su tutti i dispositivi - Italia Max Shop"
+url: "https://italia-max-shop.github.io"
+baseurl: "/guide-installazione"
+
+# Theme
+theme: minima
+
+# SEO
+author: "Italia Max Shop"
+keywords: "IPTV, installazione, app, guide, tutorial, Max Player, IBO Player, NowPurple, FireStick, Android, iOS"
+
+# Social
+social:
+  telegram: "ItaliaMaxShop"
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - README_GUIDE_INSTALLAZIONE.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
