@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiornamenti Bot - Italia Max</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .steps-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps-section h3 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .step {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+            color: #2c3e50;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefits h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cta-section h3 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #e84393;
+        }
+
+        .footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .footer h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.8em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎉 NOVITÀ IMPORTANTI - AGGIORNAMENTI BOT</h1>
+            <div class="date">📅 Data Aggiornamento: 31 Agosto 2025</div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h2>🎊 GRANDI NOVITÀ PER I NOSTRI CLIENTI!</h2>
+            <p>Abbiamo implementato <strong>importanti aggiornamenti</strong> che rendono la vostra esperienza ancora più semplice e completa!</p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <!-- Gestione Ordini -->
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>Sistema Gestione Ordini Rinnovato</h3>
+                <h4>📋 Nuova Sezione "I Miei Ordini"</h4>
+                <p>Gestisci tutti i tuoi ordini in modo organizzato:</p>
+                <ul class="feature-list">
+                    <li>Riepilogo istantaneo con contatori in tempo reale</li>
+                    <li>Ricerca avanzata per ID, prodotto, data, importo</li>
+                    <li>Organizzazione automatica per stato</li>
+                    <li>Informazioni dettagliate per ogni ordine</li>
+                </ul>
+            </div>
+
+            <!-- Rinnovi Automatici -->
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Sistema Rinnovi Automatici</h3>
+                <h4>🔄 Rinnova Direttamente dal Bot!</h4>
+                <div class="highlight">
+                    <strong>NOVITÀ ASSOLUTA:</strong> Rinnova i prodotti direttamente dal bot senza contattare l'assistenza!
+                </div>
+                <ul class="feature-list">
+                    <li>Credenziali rimangono identiche</li>
+                    <li>Estensione automatica della scadenza</li>
+                    <li>Prezzi scontati per durate lunghe</li>
+                    <li>Processo immediato senza attese</li>
+                    <li>Storico completo di tutti i rinnovi</li>
+                </ul>
+            </div>
+
+            <!-- Notifiche -->
+            <div class="feature-card">
+                <span class="feature-icon">🔔</span>
+                <h3>Notifiche Automatiche Avanzate</h3>
+                <h4>⏰ Sistema Promemoria Scadenze</h4>
+                <p>Non rischiare più di perdere il servizio:</p>
+                <ul class="feature-list">
+                    <li>Promemoria 30 giorni prima della scadenza</li>
+                    <li>Promemoria 7 giorni prima della scadenza</li>
+                    <li>Promemoria 24 ore prima della scadenza</li>
+                    <li>Notifiche di stato in tempo reale</li>
+                </ul>
+            </div>
+
+            <!-- Guide -->
+            <div class="feature-card">
+                <span class="feature-icon">📚</span>
+                <h3>Guide Interattive Complete</h3>
+                <h4>🎯 Nuova Sezione Guide</h4>
+                <p>Sistema di guide completo per ogni situazione:</p>
+                <ul class="feature-list">
+                    <li>Guide per ogni funzione del bot</li>
+                    <li>Installazione app per tutti i dispositivi</li>
+                    <li>Tutorial passo-passo illustrati</li>
+                    <li>FAQ e risoluzione problemi</li>
+                    <li>Accesso a guide web interattive</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Come Funziona il Rinnovo -->
+        <div class="steps-section">
+            <h3>✨ Come Funziona il Nuovo Sistema Rinnovi</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>📋 Vai in "I Miei Ordini"</h4>
+                    <p>Accedi alla nuova dashboard organizzata</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>📱 Seleziona l'ordine</h4>
+                    <p>Scegli il prodotto da rinnovare</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>🔄 Clicca "Rinnova"</h4>
+                    <p>Avvia il processo di rinnovo</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>⏰ Scegli la durata</h4>
+                    <p>1, 3, 6 o 12 mesi disponibili</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>💳 Effettua il pagamento</h4>
+                    <p>Completa il processo</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>✅ Rinnovo attivato!</h4>
+                    <p>Servizio esteso automaticamente</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vantaggi -->
+        <div class="benefits">
+            <h3>🎯 Vantaggi Principali</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4><span class="emoji">⚡</span>Maggiore Autonomia</h4>
+                    <p>Rinnovi senza aspettare l'assistenza</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="emoji">🔍</span>Controllo Totale</h4>
+                    <p>Tutti gli ordini sempre sotto controllo</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="emoji">📱</span>Semplicità d'Uso</h4>
+                    <p>Interfaccia intuitiva e moderna</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="emoji">💰</span>Risparmio Tempo</h4>
+                    <p>Processi completamente automatizzati</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="emoji">🔔</span>Notifiche Puntuali</h4>
+                    <p>Non perdere mai una scadenza</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="emoji">📚</span>Guide Complete</h4>
+                    <p>Aiuto sempre disponibile</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h3>🚀 Inizia Subito ad Usare le Nuove Funzioni!</h3>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Tutte le funzioni sono già attive e disponibili nel bot</p>
+            <a href="#" class="cta-button">🤖 Apri il Bot</a>
+            <a href="https://italiamax.github.io/guida-app-italiamax/" class="cta-button">📱 Guide App</a>
+            <div style="margin-top: 30px;">
+                <p><strong>🌟 TUTTO SUBITO DISPONIBILE!</strong></p>
+                <p>Apri il bot → "📋 I Miei Ordini" → Esplora le novità!</p>
+            </div>
+        </div>
+
+        <!-- Dispositivi Supportati -->
+        <div class="steps-section">
+            <h3>📱 Guide App Disponibili per Tutti i Dispositivi</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">📱</div>
+                    <h4>Android Mobile</h4>
+                    <p>Max Player, NowPurple, Ib Player, XCloud</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">📺</div>
+                    <h4>FireStick</h4>
+                    <p>Downloader + App esclusive</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">📺</div>
+                    <h4>Android TV</h4>
+                    <p>Play Store + App esclusive</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">🍎</div>
+                    <h4>iPhone/iPad</h4>
+                    <p>App Store + XCloud + Web TV</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">💻</div>
+                    <h4>Windows/Mac</h4>
+                    <p>Store ufficiali + Browser</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">📺</div>
+                    <h4>Smart TV</h4>
+                    <p>Samsung, LG + Developer Mode</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h4>🙏 Grazie per la Fiducia</h4>
+            <p>Questi aggiornamenti sono stati sviluppati <strong>ascoltando le vostre richieste</strong> e per offrirvi il <strong>miglior servizio possibile</strong>.</p>
+            <div style="margin-top: 20px;">
+                <p><strong>🎉 Buon utilizzo delle nuove funzioni!</strong></p>
+                <p><strong>Il Team di Italia Max 🇮🇹</strong></p>
+            </div>
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>💡 <strong>Suggerimento:</strong> Salva questa pagina e condividila con gli amici interessati!</p>
+                <p>💰 <strong>Ricorda:</strong> Con l'affiliazione puoi guadagnare su ogni acquisto dei tuoi referral!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
