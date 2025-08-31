@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Guide Installazione App IPTV - IPTV Italia Shop</title>
+    <meta name="description" content="Guide complete e interattive per installare app IPTV su tutti i dispositivi">
+    <meta name="keywords" content="IPTV, Max Player, IBO Player Pro, NowPurple, Android, FireStick, Smart TV">
+    
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #ff6b9d;
+            --accent-dark: #c44569;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-muted: #7f8c8d;
+            --border-radius: 12px;
+            --shadow: 0 8px 25px rgba(0,0,0,0.1);
+            --shadow-hover: 0 12px 35px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+        }
+
+        .header h1 {
+            color: var(--dark-color);
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            border-radius: 2px;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-small {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card:active {
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .card-icon {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .card-title {
+            font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* App Card Styles */
+        .app-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .app-name {
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
+            font-weight: 700;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .app-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            padding: 6px;
+            border: 2px solid #dee2e6;
+            object-fit: contain;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .app-logo:hover {
+            transform: scale(1.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .app-price {
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .app-price.free {
+            background: linear-gradient(135deg, var(--success-color), #27ae60);
+            color: white;
+        }
+
+        .app-price.paid {
+            background: linear-gradient(135deg, var(--danger-color), #c0392b);
+            color: white;
+        }
+
+        .app-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Info Boxes */
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #ffeaa7;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #856404;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .highlight::before {
+            content: '💡';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .device-specific {
+            background: linear-gradient(135deg, #e7f3ff, #cce7ff);
+            border: 1px solid #b3d9ff;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #004085;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .device-specific::before {
+            content: '🎯';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border: 1px solid #f5c6cb;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #721c24;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .warning::before {
+            content: '⚠️';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .success {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            border: 1px solid #c3e6cb;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #155724;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .success::before {
+            content: '✅';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Installation Steps */
+        .installation-steps h4 {
+            color: var(--dark-color);
+            margin: 2rem 0 1.5rem;
+            font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+            line-height: 1.6;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .step:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        /* App Exclusive Styles */
+        .app-exclusive {
+            background: linear-gradient(135deg, #f1f3f4, #e8eaed);
+            border: 1px solid #dadce0;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .app-exclusive:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-btn, .action-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn:hover, .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            filter: brightness(1.1);
+        }
+
+        .back-btn:active, .action-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .breadcrumb {
+            background: rgba(108, 117, 125, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            color: var(--text-muted);
+            font-weight: 600;
+            border: 1px solid rgba(108, 117, 125, 0.2);
+        }
+
+        /* Link Styles */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.5rem;
+            }
+            
+            .header {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .section {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .grid-small {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .app-header {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+            
+            .back-btn, .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .card {
+                min-height: 140px;
+                padding: 1.5rem 1rem;
+            }
+            
+            .step {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-card {
+                padding: 1.5rem;
+            }
+            
+            .back-btn, .action-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .breadcrumb {
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .app-logo {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .section {
+                background: white;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            
+            .back-btn, .action-btn {
+                display: none;
+            }
+            
+            .card {
+                background: #f8f9fa;
+                color: black;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .section, .header {
+                background: rgba(30, 30, 30, 0.95);
+                color: #f0f0f0;
+            }
+            
+            .app-card {
+                background: rgba(40, 40, 40, 0.9);
+                border-color: #555;
+                color: #f0f0f0;
+            }
+            
+            .app-name {
+                color: #f0f0f0;
+            }
+            
+            .step {
+                background: linear-gradient(135deg, #404040, #505050);
+                color: #f0f0f0;
+            }
+            
+            .installation-steps h4 {
+                color: #f0f0f0;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus indicators */
+        .card:focus,
+        .back-btn:focus,
+        .action-btn:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            .card {
+                border: 2px solid;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🚀 Guide Installazione App IPTV</h1>
+            <p>Guide complete e interattive per tutti i dispositivi</p>
+        </header>
+
+        <!-- Selezione Dispositivo -->
+        <section class="section active" id="deviceSelection" role="main">
+            <h2>📱 Scegli il tuo dispositivo</h2>
+            <div class="grid">
+                <button class="card" onclick="selectDevice('android')" aria-label="Guida per Android Mobile">
+                    <div class="card-icon">📱</div>
+                    <div class="card-title">Android Mobile</div>
+                    <div class="card-subtitle">Smartphone e Tablet Android</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('firestick')" aria-label="Guida per Amazon FireStick">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Amazon FireStick</div>
+                    <div class="card-subtitle">Fire TV e Fire Stick</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('androidtv')" aria-label="Guida per Android TV">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Android TV</div>
+                    <div class="card-subtitle">Smart TV con Android</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('webtv')" aria-label="Guida per Web TV">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">Web TV</div>
+                    <div class="card-subtitle">Qualsiasi Browser</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('ios')" aria-label="Guida per iPhone e iPad">
+                    <div class="card-icon">🍎</div>
+                    <div class="card-title">iPhone/iPad</div>
+                    <div class="card-subtitle">Dispositivi iOS Apple</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('mac')" aria-label="Guida per Mac">
+                    <div class="card-icon">🍎</div>
+                    <div class="card-title">Mac</div>
+                    <div class="card-subtitle">Computer Apple macOS</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('windows')" aria-label="Guida per Windows">
+                    <div class="card-icon">🖥️</div>
+                    <div class="card-title">Windows PC</div>
+                    <div class="card-subtitle">Computer Windows</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('samsung')" aria-label="Guida per Samsung Smart TV">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Samsung Smart TV</div>
+                    <div class="card-subtitle">TV Samsung Tizen</div>
+                </button>
+                
+                <button class="card" onclick="selectDevice('lg')" aria-label="Guida per LG Smart TV">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">LG Smart TV</div>
+                    <div class="card-subtitle">TV LG WebOS</div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Android Apps Selection -->
+        <section class="section" id="androidApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📱 Android Mobile
+            </nav>
+            <h2>📱 App per Android Mobile</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Vantaggi Android Mobile:</strong><br>
+                • Nessun Downloader necessario!<br>
+                • Download diretto APK per la maggior parte delle app<br>
+                • Installazione semplice e veloce
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('android', 'maxplayer')" aria-label="Guida Max Player per Android">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Player IPTV Professionale</div>
+                </button>
+                
+                <button class="card" onclick="showApp('android', 'nowpurple')" aria-label="Guida NowPurple per Android">
+                    <div class="card-icon">🟣</div>
+                    <div class="card-title">NowPurple</div>
+                    <div class="card-subtitle">App Esclusiva con VPN</div>
+                </button>
+                
+                <button class="card" onclick="showApp('android', 'iboplayer')" aria-label="Guida IBO Player Pro per Android">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">IBO Player Pro</div>
+                    <div class="card-subtitle">Player Premium €5-10</div>
+                </button>
+                
+                <button class="card" onclick="showApp('android', 'xcloud')" aria-label="Guida XCloud per Android">
+                    <div class="card-icon">☁️</div>
+                    <div class="card-title">XCloud</div>
+                    <div class="card-subtitle">Player Moderno</div>
+                </button>
+                
+                <button class="card" onclick="showApp('android', 'exclusive')" aria-label="Guida App Esclusive per Android">
+                    <div class="card-icon">⭐</div>
+                    <div class="card-title">App Esclusive</div>
+                    <div class="card-subtitle">NOW PVT, INDEX, ecc.</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- FireStick Apps Selection -->
+        <section class="section" id="firestickApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📺 Amazon FireStick
+            </nav>
+            <h2>📺 App per Amazon FireStick</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico FireStick:</strong><br>
+                • Alcune app richiedono Downloader<br>
+                • Amazon AppStore per app principali<br>
+                • Installazione via sideload per app esclusive
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('firestick', 'maxplayer')" aria-label="Guida Max Player per FireStick">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dal Amazon AppStore</div>
+                </button>
+                
+                <button class="card" onclick="showApp('firestick', 'nowpurple')" aria-label="Guida NowPurple per FireStick">
+                    <div class="card-icon">🟣</div>
+                    <div class="card-title">NowPurple</div>
+                    <div class="card-subtitle">Via Downloader</div>
+                </button>
+                
+                <button class="card" onclick="showApp('firestick', 'iboplayer')" aria-label="Guida IBO Player Pro per FireStick">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">IBO Player Pro</div>
+                    <div class="card-subtitle">Dal Amazon AppStore</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- Android TV Apps Selection -->
+        <section class="section" id="androidtvApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📺 Android TV
+            </nav>
+            <h2>📺 App per Android TV</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico Android TV:</strong><br>
+                • Mix di Google Play Store e Downloader<br>
+                • Installazione diretta per la maggior parte delle app<br>
+                • Downloader necessario solo per app esclusive
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('androidtv', 'maxplayer')" aria-label="Guida Max Player per Android TV">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dal Google Play Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('androidtv', 'nowpurple')" aria-label="Guida NowPurple per Android TV">
+                    <div class="card-icon">🟣</div>
+                    <div class="card-title">NowPurple</div>
+                    <div class="card-subtitle">Via Downloader</div>
+                </button>
+                
+                <button class="card" onclick="showApp('androidtv', 'iboplayer')" aria-label="Guida IBO Player Pro per Android TV">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">IBO Player Pro</div>
+                    <div class="card-subtitle">Dal Google Play Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('androidtv', 'exclusive')" aria-label="Guida App Esclusive per Android TV">
+                    <div class="card-icon">⭐</div>
+                    <div class="card-title">App Esclusive</div>
+                    <div class="card-subtitle">Via Downloader</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- Web TV Guide -->
+        <section class="section" id="webtvGuide" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 🌐 Web TV
+            </nav>
+            <h2>🌐 Web TV (Browser)</h2>
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-name">🌐 Web TV Player</div>
+                    <div class="app-price free">GRATUITA</div>
+                </div>
+                <div class="app-description">
+                    Accesso diretto tramite browser web senza installazione di applicazioni. 
+                    Compatibile con tutti i browser moderni su qualsiasi dispositivo.
+                </div>
+                
+                <div class="highlight">
+                    <strong>📋 Cosa ti serve:</strong><br>
+                    • Browser web moderno (Chrome, Firefox, Safari, Edge)<br>
+                    • Connessione internet stabile<br>
+                    • ID del tuo ordine per ottenere le credenziali
+                </div>
+                
+                <div class="installation-steps">
+                    <h4>🔧 Accesso Web TV - Procedura Completa:</h4>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Apri il browser:</strong><br>
+                        Avvia il tuo browser preferito (Chrome, Firefox, Safari, Edge)
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Vai al portale Web TV:</strong><br>
+                        Inserisci l'indirizzo: <strong>http://my.splayer.in/servers/Now-Pvt</strong>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Inserisci il codice di accesso:</strong><br>
+                        Codice da inserire: <strong>630</strong>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Ottieni le credenziali:</strong><br>
+                        💬 Contatta <a href="https://t.me/iptvitaliashop_bot" target="_blank">@iptvitaliashop_bot</a> con il tuo ID ordine per ricevere username e password
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Accedi al servizio:</strong><br>
+                        Inserisci le credenziali ricevute e inizia a guardare i tuoi contenuti
+                    </div>
+                </div>
+                
+                <div class="success">
+                    ✅ <strong>Connesso con successo!</strong> Ora puoi guardare tutti i tuoi contenuti IPTV direttamente dal browser.
+                </div>
+                
+                <div class="device-specific">
+                    <strong>💡 Suggerimenti per Web TV:</strong><br>
+                    • Usa modalità schermo intero per un'esperienza migliore<br>
+                    • Assicurati di avere una connessione stabile<br>
+                    • Salva il link nei preferiti per accesso rapido
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- Max Player for Android -->
+        <section class="section" id="app-android-maxplayer" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📱 Android → 🎬 Max Player
+            </nav>
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-name">
+                        <img src="https://play-lh.googleusercontent.com/kzV-KilKhkr0J62eMOSfTJI3h1sagcNulv1vv91xTqBbmEKQVZ4wCDLZHtW0r63V0w=w240-h480-rw" 
+                             alt="Logo ufficiale Max Player" 
+                             class="app-logo"
+                             onclick="window.open(this.src,'_blank')"
+                             title="Clicca per ingrandire il logo">
+                        Max Player
+                    </div>
+                    <div class="app-price free">GRATUITA</div>
+                </div>
+                
+                <div class="app-description">
+                    Lettore IPTV professionale con supporto completo per tutti i formati video e audio. 
+                    Interfaccia intuitiva e funzionalità avanzate per la migliore esperienza di visione.
+                </div>
+                
+                <div class="highlight">
+                    <strong>📋 Cosa ti serve:</strong><br>
+                    • Smartphone o Tablet Android<br>
+                    • ID del tuo ordine IPTV<br>
+                    • Connessione internet per l'attivazione
+                </div>
+                
+                <div class="warning">
+                    <strong>⚠️ IMPORTANTE - Verifica il Logo:</strong><br>
+                    Assicurati di scaricare l'app con il logo ufficiale Max Player mostrato sopra. 
+                    NON scaricare app simili come "MX Player" o altre varianti che potrebbero confondere.
+                </div>
+                
+                <div class="installation-steps">
+                    <h4>🔧 Installazione da Google Play Store:</h4>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Apri Google Play Store:</strong><br>
+                        Avvia l'app Google Play Store sul tuo dispositivo Android
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Cerca l'app ufficiale:</strong><br>
+                        Scrivi esattamente <strong>"Max Player"</strong> nella barra di ricerca<br>
+                        ⚠️ Verifica che corrisponda al logo mostrato sopra
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Installa l'applicazione:</strong><br>
+                        Tocca "Installa" e attendi il completamento del download
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Contatta il supporto:</strong><br>
+                        💬 Avvia una chat con <a href="https://t.me/iptvitaliashop_bot" target="_blank">@iptvitaliashop_bot</a>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Invia l'ID ordine:</strong><br>
+                        Fornisci il tuo <strong>ID ordine</strong> agli amministratori per l'attivazione
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Attendi l'attivazione:</strong><br>
+                        Il team tecnico attiverà il tuo account entro poche ore
+                    </div>
+                </div>
+                
+                <div class="success">
+                    ✅ <strong>Attivazione completata!</strong> Ora puoi utilizzare Max Player con il tuo abbonamento IPTV e goderti tutti i contenuti disponibili.
+                </div>
+                
+                <div class="device-specific">
+                    <strong>💡 Suggerimenti per Max Player Android:</strong><br>
+                    • Configura la qualità video in base alla tua connessione<br>
+                    • Utilizza i controlli gesture per una navigazione più fluida<br>
+                    • Attiva le notifiche per ricevere aggiornamenti importanti
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="selectDevice('android')">
+                    ← Torna ad Android
+                </button>
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    🏠 Home
+                </button>
+            </div>
+        </section>
+
+        <!-- NowPurple for Android -->
+        <section class="section" id="app-android-nowpurple" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📱 Android → 🟣 NowPurple
+            </nav>
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-name">🟣 NowPurple</div>
+                    <div class="app-price free">GRATUITA</div>
+                </div>
+                
+                <div class="app-description">
+                    La nostra applicazione esclusiva con VPN integrata per una connessione sicura e stabile. 
+                    Disponibile solo per i nostri abbonati con funzionalità avanzate di protezione.
+                </div>
+                
+                <div class="highlight">
+                    <strong>📋 Cosa ti serve:</strong><br>
+                    • Smartphone o Tablet Android<br>
+                    • ID del tuo ordine attivo<br>
+                    • Abilitazione "Origini sconosciute" nelle impostazioni
+                </div>
+                
+                <div class="device-specific">
+                    <strong>🎯 Vantaggio Android Mobile:</strong><br>
+                    Su Android puoi scaricare NowPurple direttamente tramite APK senza bisogno di Downloader, 
+                    rendendo l'installazione più veloce e semplice rispetto ad altri dispositivi.
+                </div>
+                
+                <div class="installation-steps">
+                    <h4>🔧 Installazione Diretta APK (Metodo Raccomandato):</h4>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Abilita origini sconosciute:</strong><br>
+                        Vai in <strong>Impostazioni → Sicurezza → Origini sconosciute</strong> e attiva l'opzione
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Accesso rapido tramite codice:</strong><br>
+                        Apri il browser e vai su: <strong><a href="https://aftv.news/1756384" target="_blank">aftv.news/1756384</a></strong>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Download diretto APK:</strong><br>
+                        📥 <strong>Link Principale:</strong> <a href="https://d.fileball.org/file/nowpurple.apk" target="_blank">Scarica NowPurple APK</a><br>
+                        📥 <strong>Link Alternativo:</strong> <a href="https://mediafire.com/file/nowpurple" target="_blank">Download Backup</a>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Installa l'applicazione:</strong><br>
+                        Tocca il file APK scaricato e conferma l'installazione
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Richiedi attivazione:</strong><br>
+                        💬 Contatta <a href="https://t.me/iptvitaliashop_bot" target="_blank">@iptvitaliashop_bot</a> e invia il tuo ID ordine
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Ricevi le credenziali:</strong><br>
+                        Otterrai le informazioni di accesso e il link per il download personalizzato
+                    </div>
+                </div>
+                
+                <div class="warning">
+                    ⚠️ <strong>Metodo alternativo (solo se necessario):</strong><br>
+                    Se il download diretto non funziona, puoi utilizzare i codici Downloader: 
+                    <strong>1756384</strong> o <strong>1528503</strong>
+                </div>
+                
+                <div class="success">
+                    ✅ <strong>App installata con successo!</strong> NowPurple è ora pronta per l'uso con VPN integrata per una connessione sicura e ottimizzata.
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="selectDevice('android')">
+                    ← Torna ad Android
+                </button>
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    🏠 Home
+                </button>
+            </div>
+        </section>
+
+        <!-- IBO Player Pro for Android -->
+        <section class="section" id="app-android-iboplayer" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📱 Android → 📺 IBO Player Pro
+            </nav>
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-name">
+                        <img src="https://iboplayer.pro/m3u/logo-512.png" 
+                             alt="Logo ufficiale IBO Player Pro" 
+                             class="app-logo"
+                             onclick="window.open(this.src,'_blank')"
+                             title="Clicca per ingrandire il logo ufficiale IBO Player Pro">
+                        IBO Player Pro
+                    </div>
+                    <div class="app-price paid">€5/anno o €10 a vita</div>
+                </div>
+                
+                <div class="app-description">
+                    Player IPTV professionale premium con funzionalità avanzate, EPG completa, registrazione, 
+                    timeshift e supporto per multiple playlist. La scelta dei professionisti.
+                </div>
+                
+                <div class="warning">
+                    ⚠️ <strong>VERIFICA IL LOGO UFFICIALE:</strong><br>
+                    Prima di acquistare, verifica che l'app abbia esattamente il logo IBO Player Pro mostrato sopra. 
+                    Esistono molte imitazioni, scarica solo quella ufficiale!
+                </div>
+                
+                <div class="highlight">
+                    <strong>📋 Cosa ti serve:</strong><br>
+                    • Acquisto tramite bot nella categoria "App"<br>
+                    • ID ordine di acquisto IBO Player Pro<br>
+                    • MAC Address del dispositivo (trovato nell'app)<br>
+                    • Device Key del dispositivo (trovato nell'app)
+                </div>
+                
+                <div class="installation-steps">
+                    <h4>🔧 Procedura completa di acquisto e attivazione:</h4>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Trova l'app ufficiale:</strong><br>
+                        Vai su Google Play Store e cerca <strong>"IBO Player Pro"</strong><br>
+                        ⚠️ Verifica che il logo corrisponda esattamente a quello mostrato sopra
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Acquista tramite bot:</strong><br>
+                        💬 Vai su <a href="https://t.me/iptvitaliashop_bot" target="_blank">@iptvitaliashop_bot</a><br>
+                        Seleziona categoria <strong>"App"</strong> e acquista <strong>"IBO Player Pro"</strong>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Installa e apri l'app:</strong><br>
+                        Scarica IBO Player Pro dal Play Store e <strong>aprila completamente</strong>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Trova MAC Address e Device Key DENTRO L'APP:</strong><br>
+                        <strong>IMPORTANTE:</strong> Questi dati si trovano <strong>nell'interfaccia dell'app IBO Player Pro</strong>, 
+                        NON nelle impostazioni del dispositivo!<br><br>
+                        <img src="https://www.mediafire.com/convkey/0e32/ynan4y3nhkwl6vn7g.jpg" 
+                             alt="Esempio di come trovare MAC Address e Device Key in IBO Player Pro" 
+                             style="max-width: 100%; height: auto; margin: 15px 0; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer;"
+                             onclick="window.open(this.src,'_blank')" 
+                             title="Clicca per vedere l'immagine completa">
+                        <br><em><strong>📸 Esempio:</strong> MAC Address e Device Key si trovano dentro l'app IBO Player Pro come mostrato nell'immagine</em>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Invia i dati per l'attivazione:</strong><br>
+                        Contatta l'assistenza con:<br>
+                        • <strong>ID ordine</strong> dell'acquisto IBO Player Pro<br>
+                        • <strong>MAC Address</strong> trovato nell'app<br>
+                        • <strong>Device Key</strong> trovato nell'app
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Attendi l'attivazione:</strong><br>
+                        Il team tecnico attiverà il tuo IBO Player Pro entro 24 ore lavorative
+                    </div>
+                </div>
+                
+                <div class="success">
+                    ✅ <strong>IBO Player Pro attivato!</strong> Ora hai accesso a tutte le funzionalità premium: 
+                    EPG avanzata, registrazione, timeshift, e molto altro.
+                </div>
+                
+                <div class="device-specific">
+                    <strong>💡 Funzionalità Premium IBO Player Pro:</strong><br>
+                    • EPG (Guida TV) completa e dettagliata<br>
+                    • Registrazione programmi e film<br>
+                    • Timeshift per mettere in pausa la TV<br>
+                    • Supporto playlist multiple<br>
+                    • Controlli parentali avanzati
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="selectDevice('android')">
+                    ← Torna ad Android
+                </button>
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    🏠 Home
+                </button>
+            </div>
+        </section>
+
+        <!-- Placeholder per altre app -->
+        <section class="section" id="placeholderApp" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 🔧 In Sviluppo
+            </nav>
+            
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-name">🔧 Guide in Sviluppo</div>
+                    <div class="app-price free">PRESTO DISPONIBILI</div>
+                </div>
+                
+                <div class="app-description">
+                    Stiamo lavorando per completare tutte le guide per ogni dispositivo e applicazione. 
+                    Nel frattempo, il nostro supporto tecnico è sempre disponibile per assistenza immediata.
+                </div>
+                
+                <div class="highlight">
+                    <strong>📋 Supporto immediato disponibile:</strong><br>
+                    Il nostro team tecnico può guidarti personalmente nell'installazione 
+                    per qualsiasi dispositivo o applicazione.
+                </div>
+                
+                <div class="installation-steps">
+                    <h4>🔧 Come ottenere supporto immediato:</h4>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Contatta il supporto tecnico:</strong><br>
+                        💬 Scrivi a <a href="https://t.me/iptvitaliashop_bot" target="_blank">@iptvitaliashop_bot</a>
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Specifica il tuo dispositivo:</strong><br>
+                        Indica chiaramente quale dispositivo stai utilizzando e quale app vuoi installare
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Ricevi assistenza personalizzata:</strong><br>
+                        Il team ti guiderà passo dopo passo nell'installazione
+                    </div>
+                </div>
+                
+                <div class="device-specific">
+                    <strong>💡 Guide in arrivo per:</strong><br>
+                    • Tutti i dispositivi Smart TV<br>
+                    • Computer Windows e Mac<br>
+                    • Dispositivi iOS (iPhone/iPad)<br>
+                    • App aggiuntive e funzionalità avanzate
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Stato dell'applicazione
+        let currentDevice = '';
+        let currentApp = '';
+        let navigationHistory = [];
+
+        // Gestione sezioni
+        function hideAllSections() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+
+        function showSection(sectionId) {
+            hideAllSections();
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('active');
+                smoothScrollToTop();
+                updatePageTitle(sectionId);
+            }
+        }
+
+        function smoothScrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function updatePageTitle(sectionId) {
+            const titles = {
+                'deviceSelection': '🚀 Guide Installazione App IPTV',
+                'androidApps': '📱 Android Mobile - App IPTV',
+                'firestickApps': '📺 FireStick - App IPTV',
+                'androidtvApps': '📺 Android TV - App IPTV',
+                'webtvGuide': '🌐 Web TV - IPTV Browser',
+                'app-android-maxplayer': '🎬 Max Player Android',
+                'app-android-nowpurple': '🟣 NowPurple Android',
+                'app-android-iboplayer': '📺 IBO Player Pro Android'
+            };
+            document.title = titles[sectionId] || '🚀 Guide Installazione App IPTV';
+        }
+
+        // Navigazione principale
+        function goToDeviceSelection() {
+            currentDevice = '';
+            currentApp = '';
+            navigationHistory = [];
+            showSection('deviceSelection');
+        }
+
+        function selectDevice(device) {
+            currentDevice = device;
+            currentApp = '';
+            navigationHistory.push('deviceSelection');
+            
+            const deviceSections = {
+                'android': 'androidApps',
+                'firestick': 'firestickApps',
+                'androidtv': 'androidtvApps',
+                'webtv': 'webtvGuide',
+                'ios': 'placeholderApp',
+                'mac': 'placeholderApp',
+                'windows': 'placeholderApp',
+                'samsung': 'placeholderApp',
+                'lg': 'placeholderApp'
+            };
+
+            const sectionId = deviceSections[device];
+            if (sectionId) {
+                showSection(sectionId);
+            }
+        }
+
+        function showApp(device, app) {
+            currentDevice = device;
+            currentApp = app;
+            navigationHistory.push(`${device}Apps`);
+            
+            const appSectionId = `app-${device}-${app}`;
+            const section = document.getElementById(appSectionId);
+            
+            if (section) {
+                showSection(appSectionId);
+            } else {
+                showSection('placeholderApp');
+            }
+        }
+
+        // Gestione history browser
+        function updateBrowserHistory() {
+            const state = {
+                device: currentDevice,
+                app: currentApp,
+                history: navigationHistory
+            };
+            
+            let url = window.location.pathname;
+            if (currentDevice) {
+                url += `#${currentDevice}`;
+                if (currentApp) {
+                    url += `-${currentApp}`;
+                }
+            }
+            
+            history.pushState(state, '', url);
+        }
+
+        window.addEventListener('popstate', function(event) {
+            if (event.state) {
+                currentDevice = event.state.device || '';
+                currentApp = event.state.app || '';
+                navigationHistory = event.state.history || [];
+                
+                if (currentApp) {
+                    showApp(currentDevice, currentApp);
+                } else if (currentDevice) {
+                    selectDevice(currentDevice);
+                } else {
+                    goToDeviceSelection();
+                }
+            } else {
+                goToDeviceSelection();
+            }
+        });
+
+        // Supporto touch gesture per mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+            touchStartY = event.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            touchEndY = event.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 100;
+            const swipeLength = Math.abs(touchEndX - touchStartX);
+            const swipeHeight = Math.abs(touchEndY - touchStartY);
+            
+            // Solo swipe orizzontali
+            if (swipeLength > swipeThreshold && swipeHeight < swipeLength / 2) {
+                if (touchEndX > touchStartX) {
+                    // Swipe destro - torna indietro
+                    goBack();
+                }
+            }
+        }
+
+        function goBack() {
+            if (currentApp) {
+                selectDevice(currentDevice);
+            } else if (currentDevice) {
+                goToDeviceSelection();
+            }
+        }
+
+        // Navigazione da tastiera
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'Escape':
+                    goBack();
+                    break;
+                case 'Home':
+                    goToDeviceSelection();
+                    break;
+                case 'ArrowLeft':
+                    if (event.altKey) {
+                        goBack();
+                    }
+                    break;
+            }
+        });
+
+        // Accessibility enhancements
+        function announcePageChange(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+        }
+
+        // Performance monitoring
+        function logPerformance() {
+            if ('performance' in window) {
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const perfData = performance.getEntriesByType('navigation')[0];
+                        console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                    }, 0);
+                });
+            }
+        }
+
+        // Inizializzazione
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestione URL iniziale
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const parts = hash.split('-');
+                if (parts.length >= 1) {
+                    const device = parts[0];
+                    if (parts.length >= 2) {
+                        const app = parts[1];
+                        showApp(device, app);
+                    } else {
+                        selectDevice(device);
+                    }
+                }
+            }
+            
+            // Inizializza stato history
+            const initialState = {
+                device: currentDevice,
+                app: currentApp,
+                history: navigationHistory
+            };
+            history.replaceState(initialState, '', window.location.href);
+            
+            // Performance monitoring
+            logPerformance();
+            
+            // Annuncia caricamento pagina per screen reader
+            announcePageChange('Guida installazione app IPTV caricata');
+        });
+
+        // Service Worker per performance (se supportato)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('SW registered');
+                }).catch(function(registrationError) {
+                    console.log('SW registration failed');
+                });
+            });
+        }
+
+        // Error handling globale
+        window.addEventListener('error', function(event) {
+            console.error('Error occurred:', event.error);
+            // Qui potresti inviare errori a un servizio di monitoring
+        });
+
+        // Ottimizzazione immagini lazy loading
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>
