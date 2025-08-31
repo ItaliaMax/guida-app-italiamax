@@ -895,6 +895,205 @@
             </div>
         </section>
 
+        <!-- iOS Apps Selection -->
+        <section class="section" id="iosApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📱 iOS
+            </nav>
+            <h2>📱 App per iPhone/iPad</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico iOS:</strong><br>
+                • Tutte le app disponibili sull'App Store Apple<br>
+                • Installazione diretta e semplice<br>
+                • Ottimizzate per touch e interfacce iOS
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('ios', 'maxplayer')" aria-label="Guida Max Player per iOS">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dall'App Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('ios', 'iboplayer')" aria-label="Guida Ib Player per iOS">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Ib Player</div>
+                    <div class="card-subtitle">Premium €5-10</div>
+                </button>
+                
+                <button class="card" onclick="showApp('ios', 'xcloud')" aria-label="Guida XCloud per iOS">
+                    <div class="card-icon">☁️</div>
+                    <div class="card-title">XCloud</div>
+                    <div class="card-subtitle">Solo Abbonati</div>
+                </button>
+                
+                <button class="card" onclick="showApp('ios', 'webtv')" aria-label="Guida Web TV per iOS">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">Web TV</div>
+                    <div class="card-subtitle">Via Safari</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- Mac Apps Selection -->
+        <section class="section" id="macApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 🍎 Mac
+            </nav>
+            <h2>🍎 App per Mac</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico Mac:</strong><br>
+                • App native per macOS dall'App Store<br>
+                • Accesso via browser Safari/Chrome<br>
+                • Interfaccia desktop ottimizzata
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('mac', 'maxplayer')" aria-label="Guida Max Player per Mac">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dall'App Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('mac', 'iboplayer')" aria-label="Guida Ib Player per Mac">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Ib Player</div>
+                    <div class="card-subtitle">Premium €5-10</div>
+                </button>
+                
+                <button class="card" onclick="showApp('mac', 'webtv')" aria-label="Guida Web TV per Mac">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">Web TV</div>
+                    <div class="card-subtitle">Via Browser</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- Windows Apps Selection -->
+        <section class="section" id="windowsApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 💻 Windows
+            </nav>
+            <h2>💻 App per Windows PC</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico Windows:</strong><br>
+                • App native dal Microsoft Store<br>
+                • Accesso via browser (Edge, Chrome, Firefox)<br>
+                • Interfaccia desktop completa
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('windows', 'maxplayer')" aria-label="Guida Max Player per Windows">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dal Microsoft Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('windows', 'iboplayer')" aria-label="Guida Ib Player per Windows">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Ib Player</div>
+                    <div class="card-subtitle">Premium €5-10</div>
+                </button>
+                
+                <button class="card" onclick="showApp('windows', 'webtv')" aria-label="Guida Web TV per Windows">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">Web TV</div>
+                    <div class="card-subtitle">Via Browser</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- Samsung Smart TV Apps Selection -->
+        <section class="section" id="samsungApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📺 Samsung TV
+            </nav>
+            <h2>📺 App per Samsung Smart TV</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico Samsung TV:</strong><br>
+                • Tizen OS con Samsung Smart TV Store<br>
+                • Alcune app richiedono Developer Mode<br>
+                • Interfaccia TV ottimizzata per telecomando
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('samsung', 'maxplayer')" aria-label="Guida Max Player per Samsung">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dal Tizen Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('samsung', 'iboplayer')" aria-label="Guida Ib Player per Samsung">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Ib Player</div>
+                    <div class="card-subtitle">Developer Mode</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
+        <!-- LG Smart TV Apps Selection -->
+        <section class="section" id="lgApps" role="main">
+            <nav class="breadcrumb" aria-label="Navigazione">
+                🏠 Home → 📺 LG TV
+            </nav>
+            <h2>📺 App per LG Smart TV</h2>
+            
+            <div class="device-specific">
+                <strong>🎯 Specifico LG TV:</strong><br>
+                • WebOS con LG Content Store<br>
+                • Alcune app richiedono Developer Mode<br>
+                • Interfaccia TV ottimizzata per Magic Remote
+            </div>
+            
+            <div class="grid grid-small">
+                <button class="card" onclick="showApp('lg', 'maxplayer')" aria-label="Guida Max Player per LG">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-title">Max Player</div>
+                    <div class="card-subtitle">Dal LG Store</div>
+                </button>
+                
+                <button class="card" onclick="showApp('lg', 'iboplayer')" aria-label="Guida Ib Player per LG">
+                    <div class="card-icon">📺</div>
+                    <div class="card-title">Ib Player</div>
+                    <div class="card-subtitle">Developer Mode</div>
+                </button>
+            </div>
+            
+            <div class="navigation">
+                <button class="back-btn" onclick="goToDeviceSelection()">
+                    ← Torna ai Dispositivi
+                </button>
+            </div>
+        </section>
+
         <!-- Web TV Guide -->
         <section class="section" id="webtvGuide" role="main">
             <nav class="breadcrumb" aria-label="Navigazione">
@@ -2951,6 +3150,11 @@
                 'androidApps': '📱 Android Mobile - App IPTV',
                 'firestickApps': '📺 FireStick - App IPTV',
                 'androidtvApps': '📺 Android TV - App IPTV',
+                'iosApps': '📱 iOS - App IPTV',
+                'macApps': '🍎 Mac - App IPTV',
+                'windowsApps': '💻 Windows - App IPTV',
+                'samsungApps': '📺 Samsung TV - App IPTV',
+                'lgApps': '📺 LG TV - App IPTV',
                 'webtvGuide': '🌐 Web TV - IPTV Browser',
                 'app-android-maxplayer': '🎬 Max Player Android',
                 'app-android-nowpurple': '🟣 NowPurple Android',
@@ -2977,11 +3181,11 @@
                 'firestick': 'firestickApps',
                 'androidtv': 'androidtvApps',
                 'webtv': 'webtvGuide',
-                'ios': 'placeholderApp',
-                'mac': 'placeholderApp',
-                'windows': 'placeholderApp',
-                'samsung': 'placeholderApp',
-                'lg': 'placeholderApp'
+                'ios': 'iosApps',
+                'mac': 'macApps',
+                'windows': 'windowsApps',
+                'samsung': 'samsungApps',
+                'lg': 'lgApps'
             };
 
             const sectionId = deviceSections[device];
