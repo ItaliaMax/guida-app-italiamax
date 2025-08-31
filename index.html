@@ -184,60 +184,7 @@
             margin: 15px 0;
         }
 
-        .protected-content {
-            background: #f8f9fa;
-            border: 2px dashed #dee2e6;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            margin: 20px 0;
-        }
 
-        .order-verification {
-            background: white;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .verification-input {
-            width: 100%;
-            max-width: 300px;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .verify-btn {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        .verify-btn:hover {
-            background: #0056b3;
-        }
-
-        .verify-btn:disabled {
-            background: #6c757d;
-            cursor: not-allowed;
-        }
-
-        .verification-status {
-            margin: 15px 0;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
 
         .status-success {
             background: #d4edda;
@@ -368,35 +315,7 @@
             margin-bottom: 4px;
         }
         
-        /* Nasconde tutti i sistemi di verifica ordine */
-        .order-verification,
-        #order-verification-android,
-        #order-verification-firestick,
-        #order-verification-androidtv,
-        #order-verification-exclusive-android,
-        #order-verification-exclusive-androidtv {
-            display: none !important;
-            visibility: hidden !important;
-        }
-        
-        /* Mostra sempre i contenuti protetti */
-        .hidden,
-        #protected-content-android,
-        #protected-content-firestick,
-        #protected-content-androidtv,
-        #protected-content-exclusive-android,
-        #protected-content-exclusive-androidtv {
-            display: block !important;
-            visibility: visible !important;
-        }
-        
-        /* Assicura che tutti i contenuti delle app siano visibili */
-        .app-card .installation-steps,
-        .app-card .highlight,
-        .app-card .warning {
-            display: block !important;
-            visibility: visible !important;
-        }
+
     </style>
 </head>
 <body>
@@ -527,10 +446,10 @@
                         La nostra applicazione esclusiva con VPN integrata. Solo per abbonati.
                     </div>
                     
-                    <!-- Contenuto sempre accessibile -->
+
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
-                            • ID del tuo ordine (verificato ✅)<br>
+                            • ID del tuo ordine<br>
                             • Abilitazione "Origini sconosciute"
                         </div>
                         
@@ -689,7 +608,7 @@
                         Le nostre app personalizzate per un'esperienza ottimale.
                     </div>
                     
-                    <!-- App esclusive sempre accessibili -->
+
                         <div class="installation-steps">
                             <h4>📱 App disponibili tramite link diretti APK:</h4>
                             
@@ -791,10 +710,10 @@
                         App esclusiva con VPN integrata per FireStick. Solo per abbonati.
                     </div>
                     
-                    <!-- Contenuto sempre accessibile -->
+
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
-                            • ID del tuo ordine (verificato ✅)<br>
+                            • ID del tuo ordine<br>
                             • FireStick con Downloader installato
                         </div>
                         
@@ -1448,10 +1367,10 @@
                         App esclusiva con VPN integrata per Android TV. Solo per abbonati.
                     </div>
                     
-                    <!-- Contenuto sempre accessibile -->
+
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
-                            • ID del tuo ordine (verificato ✅)<br>
+                            • ID del tuo ordine<br>
                             • Android TV con Downloader installato
                         </div>
                         
@@ -1545,10 +1464,10 @@
                         Le nostre app personalizzate per un'esperienza ottimale su Android TV.
                     </div>
                     
-                    <!-- App esclusive sempre accessibili -->
+
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
-                            • ID del tuo ordine (verificato ✅)<br>
+                            • ID del tuo ordine<br>
                             • Android TV con Downloader installato
                         </div>
                         
