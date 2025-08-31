@@ -367,6 +367,36 @@
             display: block;
             margin-bottom: 4px;
         }
+        
+        /* Nasconde tutti i sistemi di verifica ordine */
+        .order-verification,
+        #order-verification-android,
+        #order-verification-firestick,
+        #order-verification-androidtv,
+        #order-verification-exclusive-android,
+        #order-verification-exclusive-androidtv {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        
+        /* Mostra sempre i contenuti protetti */
+        .hidden,
+        #protected-content-android,
+        #protected-content-firestick,
+        #protected-content-androidtv,
+        #protected-content-exclusive-android,
+        #protected-content-exclusive-androidtv {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        /* Assicura che tutti i contenuti delle app siano visibili */
+        .app-card .installation-steps,
+        .app-card .highlight,
+        .app-card .warning {
+            display: block !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body>
@@ -374,9 +404,6 @@
         <div class="header">
             <h1>🚀 Guide Installazione App IPTV</h1>
             <p>Seleziona il tuo dispositivo per ottenere una guida personalizzata</p>
-            <div style="background: #e8f4f8; border: 1px solid #3498db; padding: 10px; border-radius: 5px; margin: 15px 0; font-size: 14px;">
-                <strong>📋 Demo GitHub Pages:</strong> Questa è una versione dimostrativa. Per la verifica ordini, usa IDs come <code>TEST123</code>, <code>ORD456</code> o numeri come <code>12345</code>.
-            </div>
         </div>
 
         <div class="device-selector" id="deviceSelector">
@@ -500,20 +527,7 @@
                         La nostra applicazione esclusiva con VPN integrata. Solo per abbonati.
                     </div>
                     
-                    <!-- Sistema di verifica ordine -->
-                    <div id="order-verification-android" class="order-verification">
-                        <h4>🔐 Verifica il tuo ordine</h4>
-                        <p>Per accedere ai link di download delle app esclusive, inserisci il tuo ID ordine:</p>
-                        <div>
-                            <input type="text" id="order-input-android" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
-                            <br>
-                            <button id="verify-btn-android" class="verify-btn">🔍 Verifica Ordine</button>
-                        </div>
-                        <div id="verification-status-android"></div>
-                    </div>
-                    
-                    <!-- Contenuto protetto (nascosto inizialmente) -->
-                    <div id="protected-content-android" class="hidden">
+                    <!-- Contenuto sempre accessibile -->
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
                             • ID del tuo ordine (verificato ✅)<br>
@@ -675,20 +689,7 @@
                         Le nostre app personalizzate per un'esperienza ottimale.
                     </div>
                     
-                    <!-- Sistema di verifica ordine per app esclusive -->
-                    <div id="order-verification-exclusive-android" class="order-verification">
-                        <h4>🔐 Verifica il tuo ordine per App Esclusive</h4>
-                        <p>Per accedere ai link di download delle app esclusive, inserisci il tuo ID ordine:</p>
-                        <div>
-                            <input type="text" id="order-input-exclusive-android" class="verification-input" placeholder="Inserisci ID ordine (es: TEST123 per test)">
-                            <br>
-                            <button id="verify-btn-exclusive-android" class="verify-btn">🔍 Verifica Ordine</button>
-                        </div>
-                        <div id="verification-status-exclusive-android"></div>
-                    </div>
-                    
-                    <!-- Contenuto protetto app esclusive -->
-                    <div id="protected-content-exclusive-android" class="hidden">
+                    <!-- App esclusive sempre accessibili -->
                         <div class="installation-steps">
                             <h4>📱 App disponibili tramite link diretti APK:</h4>
                             
@@ -790,20 +791,7 @@
                         App esclusiva con VPN integrata per FireStick. Solo per abbonati.
                     </div>
                     
-                    <!-- Sistema di verifica ordine -->
-                    <div id="order-verification-firestick" class="order-verification">
-                        <h4>🔐 Verifica il tuo ordine</h4>
-                        <p>Per accedere ai codici di download di NowPurple, inserisci il tuo ID ordine:</p>
-                        <div>
-                            <input type="text" id="order-input-firestick" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
-                            <br>
-                            <button id="verify-btn-firestick" class="verify-btn">🔍 Verifica Ordine</button>
-                        </div>
-                        <div id="verification-status-firestick"></div>
-                    </div>
-                    
-                    <!-- Contenuto protetto (nascosto inizialmente) -->
-                    <div id="protected-content-firestick" class="hidden">
+                    <!-- Contenuto sempre accessibile -->
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
                             • ID del tuo ordine (verificato ✅)<br>
@@ -1460,20 +1448,7 @@
                         App esclusiva con VPN integrata per Android TV. Solo per abbonati.
                     </div>
                     
-                    <!-- Sistema di verifica ordine -->
-                    <div id="order-verification-androidtv" class="order-verification">
-                        <h4>🔐 Verifica il tuo ordine</h4>
-                        <p>Per accedere ai codici di download di NowPurple, inserisci il tuo ID ordine:</p>
-                        <div>
-                            <input type="text" id="order-input-androidtv" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
-                            <br>
-                            <button id="verify-btn-androidtv" class="verify-btn">🔍 Verifica Ordine</button>
-                        </div>
-                        <div id="verification-status-androidtv"></div>
-                    </div>
-                    
-                    <!-- Contenuto protetto (nascosto inizialmente) -->
-                    <div id="protected-content-androidtv" class="hidden">
+                    <!-- Contenuto sempre accessibile -->
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
                             • ID del tuo ordine (verificato ✅)<br>
@@ -1570,20 +1545,7 @@
                         Le nostre app personalizzate per un'esperienza ottimale su Android TV.
                     </div>
                     
-                    <!-- Sistema di verifica ordine per app esclusive -->
-                    <div id="order-verification-exclusive-androidtv" class="order-verification">
-                        <h4>🔐 Verifica il tuo ordine per App Esclusive</h4>
-                        <p>Per accedere ai codici di download delle app esclusive, inserisci il tuo ID ordine:</p>
-                        <div>
-                            <input type="text" id="order-input-exclusive-androidtv" class="verification-input" placeholder="Inserisci ID ordine (es: ORD123456)">
-                            <br>
-                            <button id="verify-btn-exclusive-androidtv" class="verify-btn">🔍 Verifica Ordine</button>
-                        </div>
-                        <div id="verification-status-exclusive-androidtv"></div>
-                    </div>
-                    
-                    <!-- Contenuto protetto per app esclusive (nascosto inizialmente) -->
-                    <div id="protected-content-exclusive-androidtv" class="hidden">
+                    <!-- App esclusive sempre accessibili -->
                         <div class="highlight">
                             <strong>📋 Cosa ti serve:</strong><br>
                             • ID del tuo ordine (verificato ✅)<br>
@@ -1880,125 +1842,7 @@
     </div>
 
     <script>
-        // Sistema di verifica ordine per contenuti protetti
-        async function verifyOrder(orderId, deviceType) {
-            const statusDiv = document.getElementById(`verification-status-${deviceType}`);
-            const verifyBtn = document.getElementById(`verify-btn-${deviceType}`);
-            
-            // Rimosso controllo localStorage - sempre verifica online
-            
-            // Mostra stato di caricamento
-            statusDiv.innerHTML = '<div class="verification-status status-loading">🔄 Verifica in corso...</div>';
-            verifyBtn.disabled = true;
-            
-            try {
-                // Simulazione API per GitHub Pages (sostituire con API reale in produzione)
-                const mockResponse = {
-                    valid: orderId.startsWith('TEST') || orderId.startsWith('ORD') || /^\d+$/.test(orderId),
-                    message: orderId.startsWith('TEST') || orderId.startsWith('ORD') || /^\d+$/.test(orderId) ? 'Accesso autorizzato (demo)' : 'ID ordine non valido',
-                    order_info: {
-                        id: orderId,
-                        product: 'Prodotto Demo',
-                        status: 'delivered'
-                    }
-                };
-                
-                // Simula delay API
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                const result = mockResponse;
-                
-                // Codice commentato per API reale:
-                // const response = await fetch('https://your-api-domain.com/verify_order_api.php', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //     },
-                //     body: JSON.stringify({
-                //         order_id: orderId
-                //     })
-                // });
-                // 
-                // const result = await response.json();
-                
-                if (result.valid) {
-                    // Ordine valido - mostra contenuto protetto
-                    statusDiv.innerHTML = `
-                        <div class="verification-status status-success">
-                            ✅ Accesso autorizzato!<br>
-                            <small>Ordine: ${result.order_info.product}</small>
-                        </div>
-                    `;
-                    
-                    // Nasconde verifica e mostra contenuto
-                    document.getElementById(`order-verification-${deviceType}`).style.display = 'none';
-                    document.getElementById(`protected-content-${deviceType}`).classList.remove('hidden');
-                    
-                    // Mostra anche le app esclusive se esistono (per il sistema combinato)
-                    const exclusiveApps = document.getElementById(`exclusive-apps-content-${deviceType}`);
-                    if (exclusiveApps) {
-                        exclusiveApps.classList.remove('hidden');
-                    }
-                    
-                    // Rimosso salvataggio localStorage - sempre richiedi verifica
-                    
-                } else {
-                    // Ordine non valido
-                    statusDiv.innerHTML = `
-                        <div class="verification-status status-error">
-                            ❌ ${result.message}<br>
-                            <small>Verifica il tuo ID ordine e riprova</small>
-                        </div>
-                    `;
-                }
-                
-            } catch (error) {
-                statusDiv.innerHTML = `
-                    <div class="verification-status status-error">
-                        ❌ Errore di connessione<br>
-                        <small>Riprova più tardi</small>
-                    </div>
-                `;
-            }
-            
-            verifyBtn.disabled = false;
-        }
-        
-        // Funzione rimossa - nessuna memorizzazione, sempre richiedi ID
-        function checkExistingVerification(deviceType) {
-            // Non fare nulla - ogni volta deve reinserire l'ID
-        }
-        
-        // Funzione rimossa - nessuna memorizzazione
-        function isOrderAlreadyVerified(orderId, deviceType) {
-            return false; // Sempre falso = sempre richiedi verifica
-        }
-        
-        // Funzione rimossa - non più necessaria
-        function clearVerifiedOrders(deviceType) {
-            // Non più necessaria
-        }
-        
-        // Gestione form di verifica
-        function setupVerification(deviceType) {
-            const input = document.getElementById(`order-input-${deviceType}`);
-            const btn = document.getElementById(`verify-btn-${deviceType}`);
-            
-            if (input && btn) {
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        verifyOrder(input.value.trim(), deviceType);
-                    }
-                });
-                
-                btn.addEventListener('click', function() {
-                    const orderId = input.value.trim();
-                    if (orderId) {
-                        verifyOrder(orderId, deviceType);
-                    }
-                });
-            }
-        }
+
 
         function showGuide(device) {
             // Nascondi il selettore dispositivi
@@ -2012,19 +1856,7 @@
             const selectedGuide = document.getElementById('guide' + device.charAt(0).toUpperCase() + device.slice(1));
             if (selectedGuide) {
                 selectedGuide.classList.add('active');
-                
-                // Inizializza il sistema di verifica per contenuti protetti
-                setupVerification(device);
-                checkExistingVerification(device);
-                
-                // Inizializza anche il sistema per le app esclusive
-                setupVerification(`exclusive-${device}`);
-                checkExistingVerification(`exclusive-${device}`);
             }
-            
-            // Evidenzia il dispositivo selezionato
-            document.querySelectorAll('.device-card').forEach(card => card.classList.remove('selected'));
-            event.target.closest('.device-card').classList.add('selected');
         }
         
         function showDeviceSelector() {
@@ -2034,9 +1866,6 @@
             // Nascondi tutte le guide
             const guides = document.querySelectorAll('.guide-container');
             guides.forEach(guide => guide.classList.remove('active'));
-            
-            // Rimuovi selezione
-            document.querySelectorAll('.device-card').forEach(card => card.classList.remove('selected'));
         }
     </script>
 </body>
